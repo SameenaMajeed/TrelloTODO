@@ -33,6 +33,7 @@ const DraggableTask: React.FC<DraggableTaskProps> = ({
       setIsEditing(false);
     }
   };
+  
 
   return (
     <div
