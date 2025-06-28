@@ -73,11 +73,14 @@ const Section: React.FC<Props> = ({ status, tasks, setTasks }) => {
   };
 
   const handleDeleteTask = (taskId: string | number) => {
-    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+  setTasks((prevTasks) => {
+    const updatedTasks = prevTasks.filter((task) => task.id !== taskId);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-    setTasks(updatedTasks);
-    toast.success("Task successfully deleted.");
-  };
+    return updatedTasks;
+  });
+  toast.success("Task successfully deleted.");
+};
+
 
   const handleEdit = (taskId: string | number, newName: string) => {
     setTasks((prevTasks) => {
