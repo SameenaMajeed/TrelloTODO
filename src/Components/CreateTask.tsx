@@ -9,6 +9,7 @@ interface Props {
 }
 
 const CreateTask: React.FC<Props> = ({ tasks, setTasks }) => {
+  console.log(tasks)
   const [task, setTask] = useState<Task>({
     id: "",
     name: "",
